@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MY PORTFOLIO</title>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="portfolio.css">
+</head>
+
+<body>
+
+  <div id="intro" class="section active">
+    <div class="intro-content">
+      <h1 class="gradient-text type-effect">
+        Where logic meets creativity,<br>
+        transforming ideas into meaningful code,<br>
+        and code into impactful digital solutions.<br>
+        <span class="welcome-text">Welcome..!!</span>
+      </h1>
+      <button class="primary-btn pulse-effect" onclick="openPortfolio()">See Portfolio</button>
+    </div>
+
+    <!-- Particles/Shapes for background -->
+    <div class="shape shape-1"></div>
+    <div class="shape shape-2"></div>
+  </div>
+
+  <div id="portfolio" class="section">
+    <div class="portfolio-container">
+
+      <div class="left-panel glass-panel">
+        <h1 class="gradient-text">Welcome to My Portfolio</h1>
+        <h2 class="name-highlight">Pornima Madanpal Waghmare</h2>
+        <p class="tagline">A passionate Computer Science student focused on building impactful digital solutions.</p>
+
+        <div class="profile-img-container">
+          <img src="myphoto.jpeg" class="profile-pic" alt="Pornima Madanpal Waghmare">
+          <div class="glow-ring"></div>
+        </div>
+      </div>
+
+      <div class="right-panel">
+        <div class="button-group">
+          <button class="nav-btn" onclick="toggle('about')">About Me</button>
+          <button class="nav-btn" onclick="toggle('p')">Personal Details</button>
+          <button class="nav-btn" onclick="toggle('q')">Qualification</button>
+          <button class="nav-btn" onclick="toggle('pr')">Projects</button>
+          <button class="nav-btn" onclick="toggle('ts')">Technical Skills</button>
+          <button class="nav-btn" onclick="toggle('ss')">Soft Skills</button>
+          <button class="nav-btn" onclick="toggle('a')">Achievements</button>
+        </div>
+
+        <div id="box" class="glass-box" style="display:none;"></div>
+      </div>
+
+      <div class="contact-section glass-pill">
+        <h3>Contact Me</h3>
+        <div class="social-links">
+          <a href="mailto:pornimaw875@gmail.com" title="Email"><i class="fa-solid fa-envelope"></i></a>
+          <a href="https://www.linkedin.com/in/pornima-waghmare-757769380" target="_blank" title="LinkedIn"><i
+              class="fa-brands fa-linkedin"></i></a>
+          <a href="https://www.instagram.com/porrnima18?igsh=ZDYzajcwb3Vrcmti" target="_blank" title="Instagram"><i
+              class="fa-brands fa-instagram"></i></a>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Ambient background elements -->
+    <div class="ambient-light light-1"></div>
+    <div class="ambient-light light-2"></div>
+  </div>
+
+  <script>
+    function openPortfolio() {
+      document.getElementById("intro").classList.remove("active");
+
+      setTimeout(() => {
+        document.getElementById("portfolio").classList.add("active");
+      }, 300); // Wait for fade out
+    }
+
+    function toggle(type) {
+      let box = document.getElementById("box");
+      box.style.display = "block";
+      // Add animation class
+      box.classList.remove("fade-in");
+      void box.offsetWidth; // trigger reflow
+      box.classList.add("fade-in");
+
+      if (type === "about") {
+        box.innerHTML = `
+      <h3><i class="fa-solid fa-user"></i> About me</h3>
+      <p>I am a Computer Science Engineering student at MIT AOE, Pune.</p>
+      <p>I am passionate about technology, problem-solving, and building innovative projects.</p>
+      <p>Currently, I am learning web development and programming to create real-world solutions.</p>
+    `;
+      } else if (type === "p") {
+        box.innerHTML = `
+      <h3><i class="fa-solid fa-address-card"></i> Personal Details</h3>
+      <ul>
+        <li><strong>Name:</strong> Pornima Madanpal Waghmare</li>
+        <li><strong>Resident:</strong> Pune, Maharashtra</li>
+        <li><strong>Phone:</strong> 8087****74</li>
+        <li><strong>Email:</strong> pornimaw875@gmail.com</li>
+        <li><strong>LinkedIn:</strong> linkedin.com/in/pornima-waghmare-757769380</li>
+      </ul>
+    `;
+      } else if (type === "q") {
+        box.innerHTML = `
+      <h3><i class="fa-solid fa-graduation-cap"></i> Qualification</h3>
+      <div class="timeline">
+        <div class="timeline-item">
+          <h4>B.Tech in Computer Science</h4>
+          <p>MIT AOE, Pune | 2025 - Present</p>
+        </div>
+        <div class="timeline-item">
+          <h4>12th (Science)</h4>
+          <p>Shri Bhairavnath Higher Secondary School, Bhosari, Pune | Maharashtra Board</p>
+        </div>
+        <div class="timeline-item">
+          <h4>10th</h4>
+          <p>Sheth Ramdhari Ramchandra Agarwal School, Bhosari, Pune | Maharashtra Board</p>
+        </div>
+      </div>
+    `;
+      } else if (type === "pr") {
+        box.innerHTML = `
+      <h3><i class="fa-solid fa-laptop-code"></i> Projects</h3>
+      <ul class="project-list">
+        <li>
+          <strong>Automatic Street Light</strong>
+          <p>Designed and implemented using Relay module & LDR module</p>
+        </li>
+        <li><strong>Portfolio Website</strong></li>
+        <li><strong>Simple Calculator</strong></li>
+        <li><strong>To-Do List App</strong></li>
+      </ul>
+    `;
+      } else if (type === "ts") {
+        box.innerHTML = `
+      <h3><i class="fa-solid fa-code"></i> Technical Skills</h3>
+      <div class="skills-container">
+        <span class="skill-tag">C</span>
+        <span class="skill-tag">C++</span>
+        <span class="skill-tag">Python</span>
+        <span class="skill-tag">Java</span>
+        <span class="skill-tag">Linux</span>
+        <span class="skill-tag">Github</span>
+        <span class="skill-tag">HTML</span>
+        <span class="skill-tag">CSS</span>
+        <span class="skill-tag">JavaScript</span>
+      </div>
+    `;
+      } else if (type === "ss") {
+        box.innerHTML = `
+      <h3><i class="fa-solid fa-users"></i> Soft Skills</h3>
+      <ul class="soft-skills-list">
+        <li><i class="fa-solid fa-check"></i> Quick Learner</li>
+        <li><i class="fa-solid fa-check"></i> Leadership & Teamwork</li>
+        <li><i class="fa-solid fa-check"></i> Problem Solving</li>
+        <li><i class="fa-solid fa-check"></i> Communication Skills</li>
+      </ul>
+    `;
+      } else if (type === "a") {
+        box.innerHTML = `
+      <h3><i class="fa-solid fa-trophy"></i> Achievements</h3>
+      <ul class="achievements-list">
+        <li><i class="fa-solid fa-medal gold"></i> District-Level Olympiad Student</li>
+        <li><i class="fa-solid fa-medal silver"></i> NMMS school champion</li>
+        <li><i class="fa-solid fa-medal bronze"></i> Silver medal in interschool drawing competition</li>
+        <li><i class="fa-solid fa-star"></i> 1st Rank in singing interschool competition</li>
+      </ul>
+    `;
+      }
+    }
+  </script>
+
+</body>
+
+</html>
